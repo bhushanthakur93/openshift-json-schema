@@ -32,7 +32,8 @@
       "type": [
         "string",
         "null"
-      ]
+      ],
+      "maxLength": 15
     },
     "protocol": {
       "description": "Protocol for port. Must be UDP or TCP. Defaults to \"TCP\".",
