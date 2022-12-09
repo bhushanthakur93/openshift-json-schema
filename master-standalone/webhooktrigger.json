@@ -1,22 +1,18 @@
 {
   "description": "WebHookTrigger is a trigger that gets invoked using a webhook type of post",
+  "type": "object",
   "properties": {
     "allowEnv": {
       "description": "allowEnv determines whether the webhook can set environment variables; can only be set to true for GenericWebHook.",
-      "type": [
-        "boolean",
-        "null"
-      ]
+      "type": "boolean"
     },
     "secret": {
       "description": "secret used to validate requests. Deprecated: use SecretReference instead.",
-      "type": [
-        "string",
-        "null"
-      ]
+      "type": "string"
     },
     "secretReference": {
       "description": "SecretLocalReference contains information that points to the local secret being used",
+      "type": "object",
       "required": [
         "name"
       ],
@@ -28,6 +24,5 @@
       }
     }
   },
-  "$schema": "http://json-schema.org/schema#",
-  "type": "object"
+  "$schema": "http://json-schema.org/schema#"
 }

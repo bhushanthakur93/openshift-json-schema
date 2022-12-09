@@ -1,8 +1,10 @@
 {
   "description": "ScopeRestriction describe one restriction on scopes.  Exactly one option must be non-nil.",
+  "type": "object",
   "properties": {
     "clusterRole": {
       "description": "ClusterRoleScopeRestriction describes restrictions on cluster role scopes",
+      "type": "object",
       "required": [
         "roleNames",
         "namespaces",
@@ -17,38 +19,25 @@
           "description": "Namespaces is the list of namespaces that can be referenced.  * means any of them (including *)",
           "type": "array",
           "items": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           }
         },
         "roleNames": {
           "description": "RoleNames is the list of cluster roles that can referenced.  * means anything",
           "type": "array",
           "items": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           }
         }
       }
     },
     "literals": {
       "description": "ExactValues means the scope has to match a particular set of strings exactly",
-      "type": [
-        "array",
-        "null"
-      ],
+      "type": "array",
       "items": {
-        "type": [
-          "string",
-          "null"
-        ]
+        "type": "string"
       }
     }
   },
-  "$schema": "http://json-schema.org/schema#",
-  "type": "object"
+  "$schema": "http://json-schema.org/schema#"
 }

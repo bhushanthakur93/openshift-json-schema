@@ -1,45 +1,32 @@
 {
   "description": "APIGroupList is a list of APIGroup, to allow clients to discover the API at /apis.",
+  "type": "object",
   "required": [
     "groups"
   ],
   "properties": {
     "apiVersion": {
-      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources",
-      "type": [
-        "string",
-        "null"
-      ]
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": "string"
     },
     "groups": {
       "description": "groups is a list of APIGroup.",
-      "type": [
-        "array",
-        "null"
-      ],
+      "type": "array",
       "items": {
         "description": "APIGroup contains the name, the supported versions, and the preferred version of a group.",
+        "type": "object",
         "required": [
           "name",
           "versions"
         ],
         "properties": {
           "apiVersion": {
-            "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources",
-            "type": [
-              "string",
-              "null"
-            ]
+            "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+            "type": "string"
           },
           "kind": {
-            "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds",
-            "type": [
-              "string",
-              "null"
-            ],
-            "enum": [
-              "APIGroup"
-            ]
+            "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+            "type": "string"
           },
           "name": {
             "description": "name is the name of the group.",
@@ -47,6 +34,7 @@
           },
           "preferredVersion": {
             "description": "GroupVersion contains the \"group/version\" and \"version\" string of a version. It is made a struct to keep extensibility.",
+            "type": "object",
             "required": [
               "groupVersion",
               "version"
@@ -64,12 +52,10 @@
           },
           "serverAddressByClientCIDRs": {
             "description": "a map of client CIDR to server address that is serving this group. This is to help clients reach servers in the most network-efficient way possible. Clients can use the appropriate server address as per the CIDR that they match. In case of multiple matches, clients should use the longest matching CIDR. The server returns only those CIDRs that it thinks that the client can match. For example: the master will return an internal IP CIDR only, if the client reaches the server using an internal IP. Server looks at X-Forwarded-For header or X-Real-Ip header or request.RemoteAddr (in that order) to get the client IP.",
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "description": "ServerAddressByClientCIDR helps the client to determine the server address that they should use, depending on the clientCIDR that they match.",
+              "type": "object",
               "required": [
                 "clientCIDR",
                 "serverAddress"
@@ -91,6 +77,7 @@
             "type": "array",
             "items": {
               "description": "GroupVersion contains the \"group/version\" and \"version\" string of a version. It is made a struct to keep extensibility.",
+              "type": "object",
               "required": [
                 "groupVersion",
                 "version"
@@ -118,14 +105,8 @@
       }
     },
     "kind": {
-      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds",
-      "type": [
-        "string",
-        "null"
-      ],
-      "enum": [
-        "APIGroupList"
-      ]
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": "string"
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -135,6 +116,5 @@
       "version": "v1"
     }
   ],
-  "$schema": "http://json-schema.org/schema#",
-  "type": "object"
+  "$schema": "http://json-schema.org/schema#"
 }

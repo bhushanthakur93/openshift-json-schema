@@ -1,8 +1,10 @@
 {
-  "description": "NodeConfigSource specifies a source of node configuration. Exactly one subfield (excluding metadata) must be non-nil.",
+  "description": "NodeConfigSource specifies a source of node configuration. Exactly one subfield (excluding metadata) must be non-nil. This API is deprecated since 1.22",
+  "type": "object",
   "properties": {
     "configMap": {
-      "description": "ConfigMapNodeConfigSource contains the information to reference a ConfigMap as a config source for the Node.",
+      "description": "ConfigMapNodeConfigSource contains the information to reference a ConfigMap as a config source for the Node. This API is deprecated since 1.22: https://git.k8s.io/enhancements/keps/sig-node/281-dynamic-kubelet-configuration",
+      "type": "object",
       "required": [
         "namespace",
         "name",
@@ -23,21 +25,14 @@
         },
         "resourceVersion": {
           "description": "ResourceVersion is the metadata.ResourceVersion of the referenced ConfigMap. This field is forbidden in Node.Spec, and required in Node.Status.",
-          "type": [
-            "string",
-            "null"
-          ]
+          "type": "string"
         },
         "uid": {
           "description": "UID is the metadata.UID of the referenced ConfigMap. This field is forbidden in Node.Spec, and required in Node.Status.",
-          "type": [
-            "string",
-            "null"
-          ]
+          "type": "string"
         }
       }
     }
   },
-  "$schema": "http://json-schema.org/schema#",
-  "type": "object"
+  "$schema": "http://json-schema.org/schema#"
 }

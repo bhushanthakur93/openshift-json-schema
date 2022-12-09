@@ -1,21 +1,16 @@
 {
   "description": "VolumeError captures an error encountered during a volume operation.",
+  "type": "object",
   "properties": {
     "message": {
-      "description": "String detailing the error encountered during Attach or Detach operation. This string maybe logged, so it should not contain sensitive information.",
-      "type": [
-        "string",
-        "null"
-      ]
+      "description": "String detailing the error encountered during Attach or Detach operation. This string may be logged, so it should not contain sensitive information.",
+      "type": "string"
     },
     "time": {
-      "type": [
-        "string",
-        "null"
-      ],
+      "description": "Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.",
+      "type": "string",
       "format": "date-time"
     }
   },
-  "$schema": "http://json-schema.org/schema#",
-  "type": "object"
+  "$schema": "http://json-schema.org/schema#"
 }

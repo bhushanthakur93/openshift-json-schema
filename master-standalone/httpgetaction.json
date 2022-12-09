@@ -1,24 +1,20 @@
 {
   "description": "HTTPGetAction describes an action based on HTTP Get requests.",
+  "type": "object",
   "required": [
     "port"
   ],
   "properties": {
     "host": {
       "description": "Host name to connect to, defaults to the pod IP. You probably want to set \"Host\" in httpHeaders instead.",
-      "type": [
-        "string",
-        "null"
-      ]
+      "type": "string"
     },
     "httpHeaders": {
       "description": "Custom headers to set in the request. HTTP allows repeated headers.",
-      "type": [
-        "array",
-        "null"
-      ],
+      "type": "array",
       "items": {
         "description": "HTTPHeader describes a custom header to be used in HTTP probes",
+        "type": "object",
         "required": [
           "name",
           "value"
@@ -37,35 +33,17 @@
     },
     "path": {
       "description": "Path to access on the HTTP server.",
-      "type": [
-        "string",
-        "null"
-      ]
+      "type": "string"
     },
     "port": {
-      "oneOf": [
-        {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        {
-          "type": [
-            "integer",
-            "null"
-          ]
-        }
-      ]
+      "description": "IntOrString is a type that can hold an int32 or a string.  When used in JSON or YAML marshalling and unmarshalling, it produces or consumes the inner type.  This allows you to have, for example, a JSON field that can accept a name or number.",
+      "type": "string",
+      "format": "int-or-string"
     },
     "scheme": {
-      "description": "Scheme to use for connecting to the host. Defaults to HTTP.",
-      "type": [
-        "string",
-        "null"
-      ]
+      "description": "Scheme to use for connecting to the host. Defaults to HTTP.\n\n",
+      "type": "string"
     }
   },
-  "$schema": "http://json-schema.org/schema#",
-  "type": "object"
+  "$schema": "http://json-schema.org/schema#"
 }

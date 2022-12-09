@@ -1,5 +1,6 @@
 {
   "description": "NamedTagEventList relates a tag to its image history.",
+  "type": "object",
   "required": [
     "tag",
     "items"
@@ -7,12 +8,10 @@
   "properties": {
     "conditions": {
       "description": "Conditions is an array of conditions that apply to the tag event list.",
-      "type": [
-        "array",
-        "null"
-      ],
+      "type": "array",
       "items": {
         "description": "TagEventCondition contains condition information for a tag event.",
+        "type": "object",
         "required": [
           "type",
           "status",
@@ -25,25 +24,17 @@
             "format": "int64"
           },
           "lastTransitionTime": {
-            "type": [
-              "string",
-              "null"
-            ],
+            "description": "Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.",
+            "type": "string",
             "format": "date-time"
           },
           "message": {
             "description": "Message is a human readable description of the details about last transition, complementing reason.",
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "reason": {
             "description": "Reason is a brief machine readable explanation for the condition's last transition.",
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "status": {
             "description": "Status of the condition, one of True, False, Unknown.",
@@ -58,12 +49,10 @@
     },
     "items": {
       "description": "Standard object's metadata.",
-      "type": [
-        "array",
-        "null"
-      ],
+      "type": "array",
       "items": {
         "description": "TagEvent is used by ImageStreamStatus to keep a historical record of images associated with a tag.",
+        "type": "object",
         "required": [
           "created",
           "dockerImageReference",
@@ -72,6 +61,7 @@
         ],
         "properties": {
           "created": {
+            "description": "Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.",
             "type": "string",
             "format": "date-time"
           },
@@ -93,12 +83,8 @@
     },
     "tag": {
       "description": "Tag is the tag for which the history is recorded",
-      "type": [
-        "string",
-        "null"
-      ]
+      "type": "string"
     }
   },
-  "$schema": "http://json-schema.org/schema#",
-  "type": "object"
+  "$schema": "http://json-schema.org/schema#"
 }
