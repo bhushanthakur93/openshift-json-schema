@@ -1,133 +1,21 @@
 {
   "description": "ClusterResourceQuotaStatus defines the actual enforced quota and its current usage",
+  "type": "object",
   "required": [
-    "total",
-    "namespaces"
+    "total"
   ],
   "properties": {
     "namespaces": {
       "description": "Namespaces slices the usage by project.  This division allows for quick resolution of deletion reconciliation inside of a single project without requiring a recalculation across all projects.  This can be used to pull the deltas for a given project.",
-      "type": [
-        "array",
-        "null"
-      ],
+      "type": "array",
       "items": {
-        "description": "ResourceQuotaStatusByNamespace gives status for a particular project",
-        "required": [
-          "namespace",
-          "status"
-        ],
-        "properties": {
-          "namespace": {
-            "description": "Namespace the project this status applies to",
-            "type": "string"
-          },
-          "status": {
-            "description": "ResourceQuotaStatus defines the enforced hard limits and observed use.",
-            "properties": {
-              "hard": {
-                "description": "Hard is the set of enforced hard limits for each named resource. More info: https://kubernetes.io/docs/concepts/policy/resource-quotas/",
-                "type": [
-                  "object",
-                  "null"
-                ],
-                "additionalProperties": {
-                  "oneOf": [
-                    {
-                      "type": [
-                        "string",
-                        "null"
-                      ]
-                    },
-                    {
-                      "type": [
-                        "number",
-                        "null"
-                      ]
-                    }
-                  ]
-                }
-              },
-              "used": {
-                "description": "Used is the current observed total usage of the resource in the namespace.",
-                "type": [
-                  "object",
-                  "null"
-                ],
-                "additionalProperties": {
-                  "oneOf": [
-                    {
-                      "type": [
-                        "string",
-                        "null"
-                      ]
-                    },
-                    {
-                      "type": [
-                        "number",
-                        "null"
-                      ]
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        }
+        "$ref": "_definitions.json#/definitions/com.github.openshift.api.quota.v1.ResourceQuotaStatusByNamespace"
       }
     },
     "total": {
-      "description": "ResourceQuotaStatus defines the enforced hard limits and observed use.",
-      "properties": {
-        "hard": {
-          "description": "Hard is the set of enforced hard limits for each named resource. More info: https://kubernetes.io/docs/concepts/policy/resource-quotas/",
-          "type": [
-            "object",
-            "null"
-          ],
-          "additionalProperties": {
-            "oneOf": [
-              {
-                "type": [
-                  "string",
-                  "null"
-                ]
-              },
-              {
-                "type": [
-                  "number",
-                  "null"
-                ]
-              }
-            ]
-          }
-        },
-        "used": {
-          "description": "Used is the current observed total usage of the resource in the namespace.",
-          "type": [
-            "object",
-            "null"
-          ],
-          "additionalProperties": {
-            "oneOf": [
-              {
-                "type": [
-                  "string",
-                  "null"
-                ]
-              },
-              {
-                "type": [
-                  "number",
-                  "null"
-                ]
-              }
-            ]
-          }
-        }
-      }
+      "description": "Total defines the actual enforced quota and its current usage across all projects",
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ResourceQuotaStatus"
     }
   },
-  "$schema": "http://json-schema.org/schema#",
-  "type": "object"
+  "$schema": "http://json-schema.org/schema#"
 }

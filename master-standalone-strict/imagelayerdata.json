@@ -1,5 +1,6 @@
 {
   "description": "ImageLayerData contains metadata about an image layer.",
+  "type": "object",
   "required": [
     "size",
     "mediaType"
@@ -7,20 +8,13 @@
   "properties": {
     "mediaType": {
       "description": "MediaType of the referenced object.",
-      "type": [
-        "string",
-        "null"
-      ]
+      "type": "string"
     },
     "size": {
       "description": "Size of the layer in bytes as defined by the underlying store. This field is optional if the necessary information about size is not available.",
-      "type": [
-        "integer",
-        "null"
-      ],
+      "type": "integer",
       "format": "int64"
     }
   },
-  "$schema": "http://json-schema.org/schema#",
-  "type": "object"
+  "$schema": "http://json-schema.org/schema#"
 }

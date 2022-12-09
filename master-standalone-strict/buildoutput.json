@@ -1,99 +1,22 @@
 {
   "description": "BuildOutput is input to a build strategy and describes the container image that the strategy should produce.",
+  "type": "object",
   "properties": {
     "imageLabels": {
       "description": "imageLabels define a list of labels that are applied to the resulting image. If there are multiple labels with the same name then the last one in the list is used.",
-      "type": [
-        "array",
-        "null"
-      ],
+      "type": "array",
       "items": {
-        "description": "ImageLabel represents a label applied to the resulting image.",
-        "required": [
-          "name"
-        ],
-        "properties": {
-          "name": {
-            "description": "name defines the name of the label. It must have non-zero length.",
-            "type": "string"
-          },
-          "value": {
-            "description": "value defines the literal value of the label.",
-            "type": [
-              "string",
-              "null"
-            ]
-          }
-        }
+        "$ref": "_definitions.json#/definitions/com.github.openshift.api.build.v1.ImageLabel"
       }
     },
     "pushSecret": {
-      "description": "LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.",
-      "properties": {
-        "name": {
-          "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
-          "type": [
-            "string",
-            "null"
-          ]
-        }
-      }
+      "description": "PushSecret is the name of a Secret that would be used for setting up the authentication for executing the Docker push to authentication enabled Docker Registry (or Docker Hub).",
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.LocalObjectReference"
     },
     "to": {
-      "description": "ObjectReference contains enough information to let you inspect or modify the referred object.",
-      "properties": {
-        "apiVersion": {
-          "description": "API version of the referent.",
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "fieldPath": {
-          "description": "If referring to a piece of an object instead of an entire object, this string should contain a valid JSON/Go field access statement, such as desiredState.manifest.containers[2]. For example, if the object reference is to a container within a pod, this would take on a value like: \"spec.containers{name}\" (where \"name\" refers to the name of the container that triggered the event) or if no container name is specified \"spec.containers[2]\" (container with index 2 in this pod). This syntax is chosen only to have some well-defined way of referencing a part of an object.",
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "kind": {
-          "description": "Kind of the referent. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds",
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "name": {
-          "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "namespace": {
-          "description": "Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/",
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "resourceVersion": {
-          "description": "Specific resourceVersion to which this reference is made, if any. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#concurrency-control-and-consistency",
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "uid": {
-          "description": "UID of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids",
-          "type": [
-            "string",
-            "null"
-          ]
-        }
-      }
+      "description": "to defines an optional location to push the output of this build to. Kind must be one of 'ImageStreamTag' or 'DockerImage'. This value will be used to look up a container image repository to push to. In the case of an ImageStreamTag, the ImageStreamTag will be looked for in the namespace of the build unless Namespace is specified.",
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ObjectReference"
     }
   },
-  "$schema": "http://json-schema.org/schema#",
-  "type": "object"
+  "$schema": "http://json-schema.org/schema#"
 }

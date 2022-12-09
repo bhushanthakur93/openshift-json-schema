@@ -1,5 +1,6 @@
 {
   "description": "ClusterRoleScopeRestriction describes restrictions on cluster role scopes",
+  "type": "object",
   "required": [
     "roleNames",
     "namespaces",
@@ -8,38 +9,22 @@
   "properties": {
     "allowEscalation": {
       "description": "AllowEscalation indicates whether you can request roles and their escalating resources",
-      "type": [
-        "boolean",
-        "null"
-      ]
+      "type": "boolean"
     },
     "namespaces": {
       "description": "Namespaces is the list of namespaces that can be referenced.  * means any of them (including *)",
-      "type": [
-        "array",
-        "null"
-      ],
+      "type": "array",
       "items": {
-        "type": [
-          "string",
-          "null"
-        ]
+        "type": "string"
       }
     },
     "roleNames": {
       "description": "RoleNames is the list of cluster roles that can referenced.  * means anything",
-      "type": [
-        "array",
-        "null"
-      ],
+      "type": "array",
       "items": {
-        "type": [
-          "string",
-          "null"
-        ]
+        "type": "string"
       }
     }
   },
-  "$schema": "http://json-schema.org/schema#",
-  "type": "object"
+  "$schema": "http://json-schema.org/schema#"
 }
